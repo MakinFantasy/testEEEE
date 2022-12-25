@@ -28,9 +28,6 @@ export class Tooltip {
 
     tooltipWrap.style.bottom = tooltipWrap.offsetHeight + element.offsetHeight + 10 + 'px';
     tooltipWrap.style.left = (left + (element.offsetWidth - tooltipWrap.offsetWidth) / 2) - 8 + 'px';
-
-
-    //tooltipWrap.style.left = left + element.offsetWidth / 2 - tooltipWrap.offsetWidth / 2 + 'px';
   }
 
   removeTooltip() {
