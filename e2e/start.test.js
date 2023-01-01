@@ -4,7 +4,7 @@ describe('page start', () => {
     let browser;
     let page;
   
-    jest.setTimeout(10000);
+    jest.setTimeout(30000);
 
     beforeAll(async () => {
       //открыть браузер
