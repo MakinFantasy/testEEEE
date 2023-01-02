@@ -1,33 +1,32 @@
-import puppeteer from 'puppeteer';
+import puppeteer from "puppeteer";
 
-describe('page start', () => {
-    let browser;
-    let page;
-  
-    jest.setTimeout(30000);
+describe("page start", () => {
+  let browser;
+  let page;
 
-    beforeAll(async () => {
-      //открыть браузер
-        browser = await puppeteer.launch({
-            headless: false,
-            slowMo: 100,
-            devtools: true,
-        });
+  jest.setTimeout(30000);
 
-        //просим браузер открыть новую страницу
-        page = await browser.newPage();
+  beforeAll(async () => {
+    //открыть браузер
+    browser = await puppeteer.launch({
+      headless: false,
+      slowMo: 100,
+      devtools: true,
     });
 
-    //тесты
-    test('test page rendering', async () => {
-        await page.goto('http://localhost:9001');
+    //просим браузер открыть новую страницу
+    page = await browser.newPage();
+  });
 
-        await page.waitForSelector('body');
-    });
+  //тесты
+  test("page rendering", async () => {
+    await page.goto("http://localhost:9001");
 
-    //закрыть браузер
-    afterAll(async () => {
-        await browser.close();
-    })
+    await page.waitForSelector("body");
+  });
+
+  //закрыть браузер
+  afterAll(async () => {
+    await browser.close();
+  });
 });
-

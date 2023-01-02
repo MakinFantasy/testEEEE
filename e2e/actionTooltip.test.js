@@ -1,46 +1,44 @@
-import puppeteer from 'puppeteer';
+import puppeteer from "puppeteer";
 
-describe('add tooltip', () => {
-    let browser;
-    let page;
-  
-    jest.setTimeout(30000);
+describe("add tooltip", () => {
+  let browser;
+  let page;
 
-    beforeAll(async () => {
-        //открыть браузер
-        browser = await puppeteer.launch({
-            headless: false,
-            slowMo: 100,
-            devtools: true,
-        });
+  jest.setTimeout(30000);
 
-        //просим браузер открыть новую страницу
-        page = await browser.newPage();
+  beforeAll(async () => {
+    //открыть браузер
+    browser = await puppeteer.launch({
+      headless: false,
+      slowMo: 100,
+      devtools: true,
     });
 
-    //тесты
-    test('tooltip should be showed', async () => {
-        await page.goto('http://localhost:9001');
+    //просим браузер открыть новую страницу
+    page = await browser.newPage();
+  });
 
-        await page.waitForSelector('.btn');
-    });
+  //тесты
+  test("tooltip should be showed", async () => {
+    await page.goto("http://localhost:9001");
 
-    test('card should be valid', async () => {
+    await page.waitForSelector(".btn");
+  });
 
-      await page.goto('http://localhost:9001');
+  test("card should be valid", async () => {
+    await page.goto("http://localhost:9001");
 
-      await page.waitForSelector('.btn');
+    await page.waitForSelector(".btn");
 
-      const button = await page.$('.btn');
+    const button = await page.$(".btn");
 
-      await button.click();
+    await button.click();
 
-      await page.waitForSelector('.tooltip-wrapper');
+    await page.waitForSelector(".tooltip-wrapper");
   }, 30000);
 
-    //закрыть браузер
-    afterAll(async () => {
-        await browser.close();
-    })
+  //закрыть браузер
+  afterAll(async () => {
+    await browser.close();
+  });
 });
-
