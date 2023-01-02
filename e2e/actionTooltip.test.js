@@ -9,9 +9,9 @@ describe("add tooltip", () => {
   beforeAll(async () => {
     //открыть браузер
     browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 100,
-      devtools: true,
+      // headless: false,
+      // slowMo: 100,
+      // devtools: true,
     });
 
     //просим браузер открыть новую страницу
